@@ -9,11 +9,16 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-import os
+import os, environ, datetime
+
 from pathlib import Path
+
 import firebase_admin
 from firebase_admin import credentials
-import environ
+
+from django.utils.translation import gettext_lazy as _
+
+from core.jazzmin_conf import JAZZMIN_SETTINGS  # noqa
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -35,6 +40,7 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 DJANGO_APPS = [
+    "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -54,6 +60,10 @@ THIRD_PARTY_APPS = [
     "drf_yasg",
     "corsheaders",
     "modeltranslation",
+    "import_export",
+    "captcha",
+    "rest_framework_simplejwt",
+    "rosetta",
 ]
 
 REST_FRAMEWORK = {
@@ -66,6 +76,16 @@ REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 10,
+    "DATETIME_INPUT_FORMATS": [
+        "%Y-%m-%d %H:%M",
+        "%d-%m-%Y %H:%M",
+        "%d/%m/%Y %H:%M",
+        "%m/%d/%Y, %H:%M %p",
+        "iso-8601",
+    ],
+    "DATE_FORMAT": "%Y-%m-%d",
+    "DATETIME_FORMAT": "%Y-%m-%d %H:%M",
+    "DATE_INPUT_FORMATS": ["%d-%m-%Y", "%Y-%m-%d"],
 }
 
 INSTALLED_APPS = DJANGO_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
@@ -74,13 +94,16 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
+    # "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://26f9-86-62-2-250.ngrok-free.app',  # Sizning ngrok manzilingiz
+]
 ROOT_URLCONF = "core.urls"
 
 TEMPLATES = [
@@ -138,13 +161,28 @@ AUTH_USER_MODEL='user.User'
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "uz"
 
 TIME_ZONE = "Asia/Tashkent"
 
 USE_I18N = True
 
 USE_TZ = True
+
+LANGUAGES = (
+    ("uz", _("Uzbek")),
+    ("ru", _("Russian")),
+)
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = "uz"
+MODELTRANSLATION_LANGUAGES = ("uz", "ru")
+MODELTRANSLATION_FALLBACK_LANGUAGES = {
+    "default": ("uz", "ru"),
+}
+
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = "uz"
+
+LOCALE_PATHS = (BASE_DIR / "locale",)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -166,7 +204,7 @@ CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
         "LOCATION": f"{env.str('REDIS_URL', 'redis://localhost:6379/0')}",
-        "KEY_PREFIX": "boilerplate",  # todo: you must change this with your project name or something else
+        "KEY_PREFIX": "dmarket",  # todo: you must change this with your project name or something else
     }
 }
 
@@ -195,3 +233,18 @@ firebase_admin.initialize_app(cred)
 # cors headers settings
 CORS_ALLOW_ALL_ORIGINS = True
 
+JAZZMIN_SETTINGS = JAZZMIN_SETTINGS
+
+RECAPTCHA_PUBLIC_KEY = env.str("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = env.str("RECAPTCHA_PRIVATE_KEY")
+
+
+FRONT_URL = env.str("FRONT_URL", "localhost:8000")
+HOST = env.str("HOST")
+
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": datetime.timedelta(hours=24),
+    "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=5),
+    "UPDATE_LAST_LOGIN": True,
+}

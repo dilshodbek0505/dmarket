@@ -1,0 +1,320 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-09 13:23+0500\n"
+"PO-Revision-Date: 2024-11-09 13:26+0500\n"
+"Last-Translator: Dilshodbek Donaboyev <None>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Translated-Using: django-rosetta 0.9.9\n"
+
+#: apps/common/admin.py:32
+msgid "Main"
+msgstr "Основной"
+
+#: apps/common/admin.py:35 core/settings/base.py:173
+msgid "Uzbek"
+msgstr "Узбекский"
+
+#: apps/common/admin.py:36 core/settings/base.py:174
+msgid "Russian"
+msgstr "Русский"
+
+#: apps/common/models.py:9
+msgid "Model id"
+msgstr "Идентификатор модели"
+
+#: apps/common/models.py:10 apps/user/admin.py:20
+msgid "Created at"
+msgstr "Создано в"
+
+#: apps/common/models.py:11
+msgid "Updated at"
+msgstr "Обновлено в"
+
+#: apps/common/models.py:18
+msgid "Version"
+msgstr "Версия"
+
+#: apps/common/models.py:19
+msgid "Required"
+msgstr "Необходимый"
+
+#: apps/common/models.py:22
+msgid "Version history"
+msgstr "История версий"
+
+#: apps/common/models.py:23
+msgid "Version histories"
+msgstr "Истории версий"
+
+#: apps/common/models.py:30
+msgid "Food"
+msgstr "Еда"
+
+#: apps/common/models.py:31
+msgid "Fast food"
+msgstr "Fast food"
+
+#: apps/common/models.py:33 apps/common/models.py:71
+msgid "Name"
+msgstr "Имя"
+
+#: apps/common/models.py:34
+msgid "Category type"
+msgstr "Тип категории"
+
+#: apps/common/models.py:40 apps/common/models.py:48
+msgid "Category"
+msgstr "Категория"
+
+#: apps/common/models.py:41
+msgid "Categories"
+msgstr "Категории"
+
+#: apps/common/models.py:45
+msgid "Product name"
+msgstr "Название продукта"
+
+#: apps/common/models.py:46 apps/common/models.py:74
+msgid "Description"
+msgstr "Описание"
+
+#: apps/common/models.py:47 apps/common/models.py:153
+msgid "Image"
+msgstr "Изображение"
+
+#: apps/common/models.py:54 apps/common/models.py:70
+msgid "Product"
+msgstr "Продукт"
+
+#: apps/common/models.py:55
+msgid "Products"
+msgstr "Продукты"
+
+#: apps/common/models.py:72
+msgid "Size"
+msgstr "Размер"
+
+#: apps/common/models.py:73
+msgid "Price"
+msgstr "Цена"
+
+#: apps/common/models.py:81
+msgid "Product size"
+msgstr "Размер продукта"
+
+#: apps/common/models.py:82
+msgid "Product sizes"
+msgstr "Размеры продукта"
+
+#: apps/common/models.py:86 apps/common/models.py:116
+#: apps/notification/models.py:25 apps/notification/models.py:40
+msgid "User"
+msgstr "Пользователь"
+
+#: apps/common/models.py:92
+msgid "Cart"
+msgstr "Корзина"
+
+#: apps/common/models.py:93
+msgid "Carts"
+msgstr "Корзины"
+
+#: apps/common/models.py:103
+msgid "Cart item"
+msgstr ""
+
+#: apps/common/models.py:104
+msgid "Cart items"
+msgstr ""
+
+#: apps/common/models.py:110
+msgid "Pending"
+msgstr "Ожидающий"
+
+#: apps/common/models.py:111
+msgid "Confirmed"
+msgstr "Подтвержденный"
+
+#: apps/common/models.py:112
+msgid "Out for delivery"
+msgstr "На пути к доставке"
+
+#: apps/common/models.py:113
+msgid "Completed"
+msgstr "Завершенный"
+
+#: apps/common/models.py:114
+msgid "Cancelled"
+msgstr "Отменено"
+
+#: apps/common/models.py:117
+msgid "Status"
+msgstr "Статус"
+
+#: apps/common/models.py:118
+msgid "Delivery time"
+msgstr "Срок поставки"
+
+#: apps/common/models.py:119
+msgid "Discount"
+msgstr "Скидка"
+
+#: apps/common/models.py:130
+msgid "Order"
+msgstr "Заказ"
+
+#: apps/common/models.py:131
+msgid "Orders"
+msgstr "Заказы"
+
+#: apps/common/models.py:147
+msgid "Order item"
+msgstr ""
+
+#: apps/common/models.py:148
+msgid "Order items"
+msgstr ""
+
+#: apps/common/models.py:152
+msgid "Title"
+msgstr "Заголовок"
+
+#: apps/common/models.py:154
+msgid "Image for phone"
+msgstr "Изображение для размера телефона"
+
+#: apps/common/models.py:155
+msgid "Ordering"
+msgstr "Договариваться"
+
+#: apps/common/models.py:159
+msgid "Banner"
+msgstr "Баннер"
+
+#: apps/common/models.py:160
+msgid "Banners"
+msgstr "Баннеры"
+
+#: apps/notification/models.py:11
+msgid "Title of notification"
+msgstr ""
+
+#: apps/notification/models.py:12
+msgid "Message of notification"
+msgstr ""
+
+#: apps/notification/models.py:14
+msgid "Users"
+msgstr "Пользователи"
+
+#: apps/notification/models.py:17 apps/notification/models.py:29
+msgid "Notification"
+msgstr ""
+
+#: apps/notification/models.py:18
+msgid "Notifications"
+msgstr ""
+
+#: apps/notification/models.py:26
+msgid "Is this notification user sent?"
+msgstr ""
+
+#: apps/notification/models.py:27
+msgid "Is this notification user readable?"
+msgstr ""
+
+#: apps/notification/models.py:28
+msgid "Sent time"
+msgstr ""
+
+#: apps/notification/models.py:32
+msgid "Notification user"
+msgstr ""
+
+#: apps/notification/models.py:33
+msgid "Notification users"
+msgstr ""
+
+#: apps/notification/models.py:41
+msgid "Token"
+msgstr ""
+
+#: apps/notification/models.py:44
+msgid "User FCM Token"
+msgstr ""
+
+#: apps/notification/models.py:45
+msgid "User FCM Tokens"
+msgstr ""
+
+#: apps/user/admin.py:15
+msgid "ID"
+msgstr "ID"
+
+#: apps/user/admin.py:16 apps/user/models.py:19
+msgid "First name"
+msgstr "Имя"
+
+#: apps/user/admin.py:17 apps/user/models.py:20
+msgid "Last name"
+msgstr "Фамилия"
+
+#: apps/user/admin.py:18 apps/user/models.py:21
+msgid "Phone number"
+msgstr "Номер телефона"
+
+#: apps/user/admin.py:19 apps/user/models.py:23
+msgid "Telegram id"
+msgstr "Телеграмма id"
+
+#: apps/user/admin.py:41
+msgid "Personal info"
+msgstr "Персональная информация"
+
+#: apps/user/admin.py:44
+msgid "Permissions"
+msgstr "Разрешения"
+
+#: apps/user/admin.py:47
+msgid "Important dates"
+msgstr "Важные даты"
+
+#: apps/user/models.py:22
+msgid "Profile photo"
+msgstr "Картинка профи"
+
+#: apps/user/models.py:24
+msgid "Coins"
+msgstr "Монеты"
+
+#: apps/user/validators.py:10
+msgid "Phone number is not valid"
+msgstr ""
+
+#: templates/login.html:15
+#, python-format
+msgid ""
+"You are authenticated as %(username)s, but are not authorized to access this"
+" page. Would you like to login to a different account?"
+msgstr ""
+
+#: templates/login.html:71
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: templates/login.html:79
+msgid "Log in"
+msgstr ""
