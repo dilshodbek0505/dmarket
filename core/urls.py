@@ -5,6 +5,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.shortcuts import redirect
 from django.contrib.auth.forms import AuthenticationForm
+from django.conf.urls.i18n import i18n_patterns
 
 from captcha import fields
 
@@ -27,9 +28,13 @@ urlpatterns = [
     path("", lambda _request: redirect('swagger/')),
     path("admin/rosetta/", include("rosetta.urls")),
     path("admin/", admin.site.urls),
-    path("api/v1/common/", include("apps.common.urls", namespace="common")),
     path("api/v1/notifications/", include("apps.notification.urls", namespace="notifications")),
-]
+] 
+
+urlpatterns += i18n_patterns(
+    path("api/v1/common/", include("apps.common.urls", namespace="common")),
+    prefix_default_language=False
+)
 
 urlpatterns += swagger_urlpatterns
 

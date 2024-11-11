@@ -90,4 +90,6 @@ class OrderAdmin(admin.ModelAdmin):
 class BannerAdmin(admin.ModelAdmin):
     list_display = ('title', 'order')
     list_display_links = ('title', )
-    
+
+
+admin.site.register(models.Rating)

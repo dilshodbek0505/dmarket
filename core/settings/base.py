@@ -102,7 +102,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 CSRF_TRUSTED_ORIGINS = [
-    'https://26f9-86-62-2-250.ngrok-free.app',  # Sizning ngrok manzilingiz
+    'https://8b06-82-215-81-83.ngrok-free.app',  # Sizning ngrok manzilingiz
 ]
 ROOT_URLCONF = "core.urls"
 

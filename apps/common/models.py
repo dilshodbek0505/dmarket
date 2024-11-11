@@ -46,11 +46,13 @@ class Product(BaseModel):
     description = models.TextField(verbose_name=_('Description'))
     image = models.ImageField(upload_to='product_image', verbose_name=_('Image'))
     category = models.ForeignKey(Category, models.PROTECT, related_name='products', verbose_name=_('Category'), null=True, blank=True)
-
+    rating = models.FloatField(default=0.0)
+    
     def __str__(self) -> str:
         return self.name
 
     class Meta:
+        ordering = ['-rating', '-created_at']
         verbose_name = _("Product")
         verbose_name_plural = _("Products")
     
@@ -73,6 +75,7 @@ class ProductSize(BaseModel):
     price = models.DecimalField(default=0, max_digits=10, decimal_places=2, verbose_name=_('Price'))
     description = models.TextField(verbose_name=_('Description'))
     image = models.ImageField(upload_to='product/', blank=True, null=True)
+
 
     def __str__(self) -> str:
         return self.name
@@ -104,7 +107,7 @@ class CartItem(BaseModel):
         verbose_name_plural = _("Cart items")
 
 
-    
+
 class Order(BaseModel):
     class OrderStatusChoices(models.TextChoices):
         PENDING = ('pending', _('Pending'))
@@ -117,6 +120,7 @@ class Order(BaseModel):
     status = models.CharField(max_length=64, choices=OrderStatusChoices.choices, default=OrderStatusChoices.PENDING, verbose_name=_('Status'))
     delivery_time = models.DateTimeField(default=timezone.now, verbose_name=_('Delivery time'))
     is_discount =models.BooleanField(default=False, verbose_name=_('Discount'))
+    address = models.CharField(max_length=256, verbose_name=_('Address'))
 
     @property
     def total_price(self):
@@ -128,13 +132,13 @@ class Order(BaseModel):
                 self.user.save()
         return tl_pr
 
-    
+
     class Meta:
         verbose_name = _("Order")
         verbose_name_plural = _("Orders")
 
     def __str__(self) -> str:
-        return self.user.phone_number
+        return self.user.phone_number    
 
 
 class OrderItem(BaseModel):
@@ -161,4 +165,12 @@ class Banner(BaseModel):
         ordering = ('order', '-created_at')
         verbose_name = _('Banner')
         verbose_name_plural = _('Banners')
-        
+    
+
+class Rating(BaseModel):
+    product = models.ForeignKey(Product, models.CASCADE, related_name='ratings')
+    user = models.ForeignKey('user.User', models.CASCADE, related_name='ratings')
+    rating = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return str(self.rating)
